@@ -1,0 +1,58 @@
+<!--
+	Ideally these elements aren't created until it's confirmed that the 
+	client supports video/camera, but for the sake of illustrating the 
+	elements involved, they are created with markup (not JavaScript)
+-->
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+<script>
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}
+
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function() {
+    context.drawImage(video, 0, 0, 640, 480);
+    var imageURL = canvas.toDataURL("image/jpg");
+
+    {%  urllib.request.urlretrieve(imageURL, "PATH"+os.path.basename(img)) %}
+
+    console.log(imageURL);
+
+    var link = document.createElement('a');
+    link.innerHTML = 'Upload Image';
+    link.addEventListener('click', function(ev) {
+    link.href = imageURL;
+    link.download = "mypainting.png";
+}, false);
+document.body.appendChild(link);
+
+/*
+
+    try{
+        localStorage1 = window.localStorage;
+        localStorage.setItem('email',imageURL);
+    }
+    catch(e){
+        console.log("Storage failed: "+e);
+    }
+*/
+    //console.log(video)
+	//console.log(context.drawImage(video, 0, 0, 640, 480));
+});
+</script>

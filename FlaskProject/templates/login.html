@@ -3,28 +3,39 @@
 {% if session['logged_in'] %}
 <p>You're logged in already!</p>
 {% else %}
- 
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
  
 <form action="/login" method="POST">
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1>Login</h1>
+			<img src = "../static/logo1.png" width="150"/>
 			</div>
- 
+ </br>
+
 			<div class="login-form">
-				<div class="control-group">
-				<video autoplay="true" id="videoElement" style="width:250px">
+			{% if  not session['image_iden'] %}
+				<div class="control-group" id="videoElement" style = "padding-bottom:50px">
+				<video autoplay="true" style="width:400px;">
 				</video>
 				</div>
- 
+			{% endif %}
+
+				{% if  session['image_iden'] %}
 				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" name="password">
+				<h2 style="color: #696363">Welcome, Rayan</h2>
+				<input type="password" class="login-field" value="" placeholder="Enter your password" name="password">
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
- 
-                <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
-			    <br>
+        <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" style="width:100px" ><br><br>
+				<p> Not Rayan, click <a href="{{ url_for('login_email') }}">here</a> to login via email.</p>
+					{% endif %}
+
+					<p>To signup, click <a href="{{ url_for('signup') }}">here!</a></p>
+				<h5 style="color: #696363"> Powered by </h5>
+				<img src = "../static/mlh.png" width="70" height="35"/>
 			</div>
 		</div>
 	</div>
@@ -34,7 +45,7 @@
 {% endblock %}
 
 <script>
-var video = document.querySelector("#videoElement");
+var video = document.querySelector("#videoElement video");
 
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
@@ -44,5 +55,7 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(function (err0r) {
       console.log("Something went wrong!");
     });
+
+
 }
 </script>

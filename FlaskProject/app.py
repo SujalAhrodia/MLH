@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
+import json
 
 app = Flask(__name__)
  
@@ -22,6 +23,27 @@ def do_admin_login():
 
 @app.route('/register', methods=['POST'])
 def do_admin_register():
+    if request.form['password'] != request.form['confirm_password']:
+        flash('Wrong password!')
+        return create_account()
+    firstName = request.form['first_name']
+    lastName = request.form['last_name']
+    email = request.form['email']
+    password = request.form['password']
+
+    new_object = {}
+    new_object["firstName"] = firstName
+    new_object["lastName"] = lastName
+    new_object["password"] = password
+
+    with open("data.json","r") as f:
+        data = json.load(f)
+
+    data[email] = new_object
+
+    with open("data.json", "w") as jsonFile:
+        json.dump(data, jsonFile)
+
     return image_recorder()
 
 
@@ -34,6 +56,10 @@ def logout():
 def signup():
     return render_template('signup.html')
  
+@app.route("/data")
+def data():
+    return render_template('data.html')
+
 @app.route("/create_account")
 def create_account():
     return render_template('create_account.html')
@@ -41,6 +67,15 @@ def create_account():
 @app.route("/image_recorder", methods=['POST'])
 def image_recorder():
     return render_template('image_recorder.html')
+
+@app.route("/login_email")
+def login_email():
+    return render_template('login_email.html')
+
+@app.route("/login_email_register", methods=['POST'])
+def do_email_login():
+    return home()
+
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
