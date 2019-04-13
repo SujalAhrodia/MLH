@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+ 
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<form action="/create_account" method = "GET">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+			<img src = "../static/logo1.png" width="150"/>
+			</div>
+ </br>
+
+			<div class="login-form">
+			{% if  not session['image_iden'] %}
+				<div class="control-group" id="videoElement" style = "padding-bottom:50px">
+				<video autoplay="true" style="width:400px;">
+				</video>
+				</div>
+			{% endif %}
+
+        <p style="color:red"> Couldn't find your account</p>
+        
+        <!--<a href="{{ url_for('create_account') }}">Create Account</a>-->
+
+        <button  onclick="{{ url_for('create_account') }}" class="btn btn-primary btn-large btn-block">Create Account</button>
+        
+        <p> <a href="{{ url_for('home') }}">Sign in with your email id instead</a></p>
+			    <br>
+				<h5 style="color: #696363"> Powered by </h5>
+				<img src = "../static/mlh.png" width="70" height="35"/>
+			</div>
+		</div>
+	</div>
+</form>
+ 
+{% endif %}
+{% endblock %}
+
+<script>
+var video = document.querySelector("#videoElement video");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+
+
+}
+
+</script>
+
+
+
