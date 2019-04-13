@@ -4,12 +4,35 @@ import os
 import logging
 import face_recognition
 import cv2
+import dlib
 import numpy as np
-
+import imutils
+from scipy.spatial import distance as dist
+from imutils.video import VideoStream
+from imutils import face_utils
+import argparse
+import time
 
 IMAGES_PATH = './images'  # put your reference images in here
 CAMERA_DEVICE_ID = 0
 MAX_DISTANCE = 0.5 # increase to make recognition less strict, decrease to make more strict
+BLINK_THRSH= 1.10
+
+def eye_aspect_ratio(eye):
+	# compute the euclidean distances between the two sets of
+	# vertical eye landmarks (x, y)-coordinates
+	A = dist.euclidean(eye[1], eye[5])
+	B = dist.euclidean(eye[2], eye[4])
+
+	# compute the euclidean distance between the horizontal
+	# eye landmark (x, y)-coordinates
+	C = dist.euclidean(eye[0], eye[3])
+
+	# compute the eye aspect ratio
+	ear = (A + B) **2 / (2.0 * C)
+
+	# return the eye aspect ratio
+	return ear
 
 def get_face_embeddings_from_image(image, convert_to_rgb=False):
     """
@@ -25,7 +48,10 @@ def get_face_embeddings_from_image(image, convert_to_rgb=False):
     # run the embedding model to get face embeddings for the supplied locations
     face_encodings = face_recognition.face_encodings(image, face_locations)
 
-    return face_locations, face_encodings
+    #finding features of a face
+    face_landmarks = face_recognition.face_landmarks(image)
+
+    return face_locations, face_encodings, face_landmarks
 
 def setup_database():
     """
@@ -39,7 +65,7 @@ def setup_database():
         # use the name in the filename as the identity key
         identity = os.path.splitext(os.path.basename(filename))[0]
         # get the face encoding and link it to the identity
-        locations, encodings = get_face_embeddings_from_image(image_rgb)
+        locations, encodings, landmarks = get_face_embeddings_from_image(image_rgb)
         database[identity] = encodings[0]
 
     return database
@@ -66,45 +92,64 @@ def paint_detected_face_on_image(frame, location, name=None):
     cv2.putText(frame, name, (left + 6, bottom - 6),
                                 cv2.FONT_HERSHEY_DUPLEX, 1.0, (255, 255, 255), 1)
 
-
-
-
 def run_face_recognition(database):
     """
     Start the face recognition via the webcam
     """
     video_capture = cv2.VideoCapture(0)
+    
+    # video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+    # video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
     known_face_encodings = list(database.values())
     known_face_names = list(database.keys())
 
     while video_capture.isOpened():
+        video_capture.set(cv2.CAP_PROP_FPS, 60) 
         ok, frame = video_capture.read()
+        
+        frame = imutils.resize(frame, width=512)
         if not ok:
             logging.error("Could not read frame from camera. Stopping video capture.")
             break
 
-        face_locations, face_encodings = get_face_embeddings_from_image(frame, convert_to_rgb=True)
+        face_locations, face_encodings, face_landmarks = get_face_embeddings_from_image(frame, convert_to_rgb=True)
 
-        print(len(face_locations))
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
         if len(face_locations)==1 :
-            for location, face_encoding in zip(face_locations, face_encodings):
+            for location, face_encoding, landmarks in zip(face_locations, face_encodings, face_landmarks):
 
                 distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+                # print(face_landmarks[0]['left_eye'])
+
+                left = eye_aspect_ratio(face_landmarks[0]['left_eye'])
+                right = eye_aspect_ratio(face_landmarks[0]['right_eye'])
+
+                EAR = (left+right)/2.0
+
+                print(EAR)
+                # print(face_locations[0][0], face_locations[0][1], face_locations[0][2],)
+
                 if np.any(distances <= MAX_DISTANCE):
-                    # send to API for successful login
-                    flag = True 
                     best_match_idx = np.argmin(distances)
                     name = known_face_names[best_match_idx]
+                    if EAR < BLINK_THRSH:
+                        # send to API for successful login
+                        flag = True 
+                        print("Gotcha!")
+                        cv2.putText(frame,'BLINK',(100,100), cv2.FONT_HERSHEY_DUPLEX, 1,(255),2,cv2.LINE_AA)
+
                 else:
                     name = None
                     #send API call for sign up
-
+                frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
                 paint_detected_face_on_image(frame, location, name)
         else:
             # cv2.putText(frame,'Please move one person out of the frame!!',(10,500), cv2.FONT_HERSHEY_DUPLEX, 1,(255,255,255),2,cv2.LINE_AA)
             # send api for msg 
             flag = False
-
+        
         cv2.imshow('Video', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
