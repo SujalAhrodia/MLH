@@ -7,17 +7,18 @@ box-sizing: border-box;
 }
 body {
 font-family: Arial;
-background-color: #3498DB;
+background-color: #ffffff;
 padding: 50px;
 }
 .login {
 margin: 20px auto;
-width: 300px;
+width: 500px;
 }
 .login-screen {
-background-color: #FFF;
+background-color: #ecf0f1;
 padding: 20px;
-border-radius: 5px
+border-color: #92a8d1;
+border-radius: 40px
 }
  
 .app-title {
@@ -35,35 +36,34 @@ margin-bottom: 10px;
 input {
 text-align: center;
 background-color: #ECF0F1;
-border: 2px solid transparent;
-border-radius: 3px;
+border-radius: 10px;
 font-size: 16px;
 font-weight: 200;
 padding: 10px 0;
 width: 250px;
 transition: border .5s;
-}
- 
-input:focus {
 border: 2px solid #3498DB;
 box-shadow: none;
 }
  
+ 
 .btn {
   border: 2px solid transparent;
-  background: #3498DB;
+  background: #c7c7c7;
   color: #ffffff;
   font-size: 16px;
   line-height: 25px;
-  padding: 10px 0;
+  padding: 7px 0;
   text-decoration: none;
   text-shadow: none;
   border-radius: 3px;
   box-shadow: none;
   transition: 0.25s;
   display: block;
-  width: 250px;
+  width: 120px;
   margin: 0 auto;
+  border-radius: 15px;
+  margin-top: 15px;
 }
  
 .btn:hover {
