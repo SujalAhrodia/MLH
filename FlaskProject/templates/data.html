@@ -3,9 +3,16 @@
 	client supports video/camera, but for the sake of illustrating the 
 	elements involved, they are created with markup (not JavaScript)
 -->
-<video id="video" width="640" height="480" autoplay></video>
-<button id="snap">Snap Photo</button>
-<canvas id="canvas" width="640" height="480"></canvas>
+
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Snap Photo</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+<form action="/file_save" method="POST">
+    <input type="text" id="custId"  name="uri" />
+    <input type="submit" value="Upload" class="btn btn-primary btn-large btn-block" style="width:100px" />
+</form>
+
 <script>
 var video = document.getElementById('video');
 
@@ -24,34 +31,15 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var video = document.getElementById('video');
-
+var data;
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(video, 0, 0, 640, 480);
+    context.drawImage(video, 0, 0, 640, 480);    
     var imageURL = canvas.toDataURL("image/jpg");
+    document.getElementById("custId").value=imageURL;
 
-
-    console.log(imageURL);
-
-    var link = document.createElement('a');
-    link.innerHTML = 'Upload Image';
-    link.addEventListener('click', function(ev) {
-    link.href = imageURL;
-    link.download = "mypainting.png";
-}, false);
-document.body.appendChild(link);
-
-/*
-
-    try{
-        localStorage1 = window.localStorage;
-        localStorage.setItem('email',imageURL);
-    }
-    catch(e){
-        console.log("Storage failed: "+e);
-    }
-*/
-    //console.log(video)
-	//console.log(context.drawImage(video, 0, 0, 640, 480));
+    //data = imageURL.replace("data:image/jpeg;base64,", "");
 });
+//document.getElementById("custId").value=imageURL;
 </script>
+

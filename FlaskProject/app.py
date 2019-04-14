@@ -2,6 +2,8 @@ from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
 import json
+from base64 import b64decode
+
 
 app = Flask(__name__)
  
@@ -30,7 +32,7 @@ def do_admin_register():
     lastName = request.form['last_name']
     email = request.form['email']
     password = request.form['password']
-
+    session['email'] = email
     new_object = {}
     new_object["firstName"] = firstName
     new_object["lastName"] = lastName
@@ -60,11 +62,24 @@ def signup():
 def data():
     return render_template('data.html')
 
+@app.route("/file_save", methods=['POST'])
+def do_file_save():
+    data_uri = request.form['uri']
+    print(session['email'])
+    header, encoded = data_uri.split(",", 1)
+    data = b64decode(encoded)
+
+    with open("./static/people/image.jpg", "wb") as f:
+        f.write(data)
+    
+    return render_template('/')
+
+
 @app.route("/create_account")
 def create_account():
     return render_template('create_account.html')
 
-@app.route("/image_recorder", methods=['POST'])
+@app.route("/image_recorder", methods=['GET','POST'])
 def image_recorder():
     return render_template('image_recorder.html')
 

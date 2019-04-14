@@ -8,7 +8,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script> 
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
-<form action="/image_recorder" method="POST" onload="init()">
 	<div class="register">
 		<div class="login-screen">
 			<div class="app-title">
@@ -20,23 +19,33 @@
             <div class="login-form">
             <div class="container">
             <div class="row">
-                <div class="control-group col-sm-8" id="videoElement" style = "text-align:left; display: inline-block; margin:0px;">
-                    <video autoplay="true" style="width:600px;">
-                    </video><br><br>
-                    <button type="button" class="btn btn-primary" style="margin-left:235px;">Capture</button>
-                </div>
-                    <div class="control-group col-sm-4" style = "padding-left:10px;  display: inline-block; color: #696363; text-align: left">
-                    <center><h3>Instructions</h3></center><br>
-                    <ul>
-                        <li>Avoid having multiple faces in the frame, we don’t want someone else to login in your account. <i class="em em-smiley"></i></li>
+            <div class="control-group col-sm-12" style = "padding-left:10px;  display: inline-block; color: #696363; text-align: left">
+                    <center><h3>Instructions</h3><br>
+                    <ul style="list-style: none;">
+                        <li >Avoid having multiple faces in the frame, we don’t want someone else to login in your account. <i class="em em-smiley"></i></li>
                         <li>Look into the camera, we don’t hypnotize. <i class="em em-stuck_out_tongue_winking_eye"></i></li>
                         <li>Turn on the lights, we might want to note down your pretty features. <i class="em em-wink"></i></li>
                         <li>You look great in the hat, but you might want to remove it for this one. </li>
                         
 
                     </ul><br><br>
+                    </center>
+                    </div>
+                    </div>
+                    <div class="row">
+                <div class="control-group col-sm-6" id="videoElement" style = "text-align:left; display: inline-block; margin:0px;">
+                    <video id="video" autoplay="true" style="width:500px;">
+                    </video><br><br>
+                    <button id="snap" class="btn btn-primary" style=" margin-left:180px">Snap Photo</button>
                     
                     </div>
+              <div class="control-group col-sm-6" id="videoElement" style = "text-align:left; display: inline-block; margin:0px;">
+                    <canvas id="canvas" width="500px" height="377px"></canvas>
+                    <form action="/file_save" method="POST">
+                        <input type="hidden" id="datauri"  name="uri" />
+                        <input type="submit" value="Upload"  class="btn btn-primary" style="width:100px; margin-top:30px; margin-left:230px" />
+                    </form>
+                </div>
                     </div>
                     </div>
                     <br>
@@ -48,24 +57,39 @@
 			</div>
 		</div>
 	</div>
-</form>
  
 {% endif %}
 {% endblock %}
 
 
-<script>
-var video = document.querySelector("#videoElement video");
 
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
+<script>
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
     });
 }
 
 
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+var data;
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function() {
+    context.drawImage(video, 0, 0, 640, 480);    
+    var imageURL = canvas.toDataURL("image/jpg");
+    console.log(imageURL)
+    document.getElementById("datauri").value=imageURL;
+
+    //data = imageURL.replace("data:image/jpeg;base64,", "");
+});
+//document.getElementById("custId").value=imageURL;
 </script>
