@@ -1,17 +1,16 @@
 from flask import Flask
-from flask import Flask, flash, redirect, render_template, request, session, abort, Response, copy_current_request_context
+from flask import Flask, flash, redirect, render_template, request, session, abort, Response, copy_current_request_context, redirect, url_for
 from authenticate import VideoCamera
 import os
 import json
 import random
 from base64 import b64decode
 
+
 app = Flask(__name__)
- 
-global name, identifier
+app.config['SECRET_KEY'] = 'secret!'
 
 @app.route('/')
-
 def home():
     if not session.get('logged_in'):        
         if not session.get('image_iden'):
@@ -20,15 +19,15 @@ def home():
     else:
         return "Welcome to the system!  <a href='/logout'>Logout</a>"
 
+
 def generate_frame(camera):
     name_val = [] 
     flag = True   
-    flag2 = 0
     with app.test_request_context():
         while flag:
             frame, name = camera.run_face_recognition()
             name_val.append(name)
-            if len(name_val)>=3 and name != None:
+            if len(name_val)>=2 and name != None:
                 if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
                     # session['name'] = name_val[-3]
                     # session['image_iden'] = True
@@ -36,15 +35,16 @@ def generate_frame(camera):
                     flag=False
                     session['name'] = name
                     session['image_iden'] = True
-                    return home()
+                    
+                    #return redirect(url_for('home'))
                     # return render_template('login.html', name = name, identifier = identifier)
                     # print(session['name'])
                     # break  
-            
             yield (b'--frame\r\n'
                 b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
         
         #session['image_iden'] = True
+
 
 @app.route('/video')
 def video_feed():
@@ -93,13 +93,17 @@ def do_admin_register():
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
-    session['email'] == False
     return home()
 
 @app.route("/signup")
 def signup():
     return render_template('signup.html')
  
+
+@app.route("/login2")
+def login2():
+    return render_template('login2.html')
+
 @app.route("/file_save", methods=['POST'])
 def do_file_save():
     data_uri = request.form['uri']
@@ -143,5 +147,5 @@ def do_email_login():
     return home()
 
 if __name__ == "__main__":
-    app.secret_key = os.urandom(12)
-    app.run(debug=True,host='0.0.0.0', port=4000)
+    #socketio.run(app)
+    app.run(host='0.0.0.0', port=4000)

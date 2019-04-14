@@ -1,0 +1,3016 @@
+[2019-04-14 07:11:26 -0400] [47411] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x109bfc620>
+  on_reload: <function OnReload.on_reload at 0x109bfc730>
+  when_ready: <function WhenReady.when_ready at 0x109bfc840>
+  pre_fork: <function Prefork.pre_fork at 0x109bfc950>
+  post_fork: <function Postfork.post_fork at 0x109bfca60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x109bfcb70>
+  worker_int: <function WorkerInt.worker_int at 0x109bfcc80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x109bfcd90>
+  pre_exec: <function PreExec.pre_exec at 0x109bfcea0>
+  pre_request: <function PreRequest.pre_request at 0x109caa048>
+  post_request: <function PostRequest.post_request at 0x109caa0d0>
+  child_exit: <function ChildExit.child_exit at 0x109caa1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x109caa2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x109caa400>
+  on_exit: <function OnExit.on_exit at 0x109caa510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:11:26 -0400] [47411] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:11:26 -0400] [47411] [DEBUG] Arbiter booted
+[2019-04-14 07:11:26 -0400] [47411] [INFO] Listening at: http://0.0.0.0:4000 (47411)
+[2019-04-14 07:11:26 -0400] [47411] [INFO] Using worker: gevent
+[2019-04-14 07:11:26 -0400] [47414] [INFO] Booting worker with pid: 47414
+[2019-04-14 07:11:26 -0400] [47411] [DEBUG] 1 workers
+[2019-04-14 07:11:31 -0400] [47414] [DEBUG] GET /socket.io/
+[2019-04-14 07:11:31 -0400] [47414] [DEBUG] POST /socket.io/
+[2019-04-14 07:11:31 -0400] [47414] [DEBUG] GET /socket.io/
+[2019-04-14 07:11:31 -0400] [47414] [DEBUG] GET /socket.io/
+[2019-04-14 07:11:40 -0400] [47414] [DEBUG] GET /
+[2019-04-14 07:11:40,139] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 22, in home
+    session['image_iden'] = False
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/anaconda3/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+[2019-04-14 07:12:31 -0400] [47414] [DEBUG] Ignoring EPIPE
+[2019-04-14 07:12:43 -0400] [47449] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10eb34620>
+  on_reload: <function OnReload.on_reload at 0x10eb34730>
+  when_ready: <function WhenReady.when_ready at 0x10eb34840>
+  pre_fork: <function Prefork.pre_fork at 0x10eb34950>
+  post_fork: <function Postfork.post_fork at 0x10eb34a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10eb34b70>
+  worker_int: <function WorkerInt.worker_int at 0x10eb34c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10eb34d90>
+  pre_exec: <function PreExec.pre_exec at 0x10eb34ea0>
+  pre_request: <function PreRequest.pre_request at 0x10ebe3048>
+  post_request: <function PostRequest.post_request at 0x10ebe30d0>
+  child_exit: <function ChildExit.child_exit at 0x10ebe31e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10ebe32f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10ebe3400>
+  on_exit: <function OnExit.on_exit at 0x10ebe3510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:12:43 -0400] [47449] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:12:43 -0400] [47449] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:12:43 -0400] [47449] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:12:43 -0400] [47449] [ERROR] Retrying in 1 second.
+[2019-04-14 07:12:44 -0400] [47449] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:12:44 -0400] [47449] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:12:44 -0400] [47449] [ERROR] Retrying in 1 second.
+[2019-04-14 07:12:45 -0400] [47449] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:12:45 -0400] [47449] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:12:45 -0400] [47449] [ERROR] Retrying in 1 second.
+[2019-04-14 07:12:46 -0400] [47449] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:12:46 -0400] [47449] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:12:46 -0400] [47449] [ERROR] Retrying in 1 second.
+[2019-04-14 07:12:47 -0400] [47449] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:12:47 -0400] [47449] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:12:47 -0400] [47449] [ERROR] Retrying in 1 second.
+[2019-04-14 07:12:48 -0400] [47414] [DEBUG] GET /
+[2019-04-14 07:12:48,339] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 22, in home
+    session['image_iden'] = False
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/anaconda3/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+[2019-04-14 07:12:48 -0400] [47449] [ERROR] Can't connect to ('0.0.0.0', 4000)
+[2019-04-14 07:12:49 -0400] [47414] [DEBUG] GET /
+[2019-04-14 07:12:49,449] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 22, in home
+    session['image_iden'] = False
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/anaconda3/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+[2019-04-14 07:13:40 -0400] [47487] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10ddf7620>
+  on_reload: <function OnReload.on_reload at 0x10ddf7730>
+  when_ready: <function WhenReady.when_ready at 0x10ddf7840>
+  pre_fork: <function Prefork.pre_fork at 0x10ddf7950>
+  post_fork: <function Postfork.post_fork at 0x10ddf7a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10ddf7b70>
+  worker_int: <function WorkerInt.worker_int at 0x10ddf7c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10ddf7d90>
+  pre_exec: <function PreExec.pre_exec at 0x10ddf7ea0>
+  pre_request: <function PreRequest.pre_request at 0x10dea5048>
+  post_request: <function PostRequest.post_request at 0x10dea50d0>
+  child_exit: <function ChildExit.child_exit at 0x10dea51e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10dea52f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10dea5400>
+  on_exit: <function OnExit.on_exit at 0x10dea5510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:13:40 -0400] [47487] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:13:40 -0400] [47487] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:13:40 -0400] [47487] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:13:40 -0400] [47487] [ERROR] Retrying in 1 second.
+[2019-04-14 07:13:41 -0400] [47487] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:13:41 -0400] [47487] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:13:41 -0400] [47487] [ERROR] Retrying in 1 second.
+[2019-04-14 07:13:42 -0400] [47414] [DEBUG] GET /
+[2019-04-14 07:13:42,076] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 22, in home
+    session['image_iden'] = False
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/anaconda3/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+[2019-04-14 07:13:42 -0400] [47414] [DEBUG] GET /
+[2019-04-14 07:13:42,584] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 22, in home
+    session['image_iden'] = False
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/anaconda3/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+[2019-04-14 07:13:42 -0400] [47487] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:13:42 -0400] [47487] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:13:42 -0400] [47487] [ERROR] Retrying in 1 second.
+[2019-04-14 07:13:42 -0400] [47414] [DEBUG] GET /
+[2019-04-14 07:13:42,991] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 22, in home
+    session['image_iden'] = False
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/anaconda3/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+[2019-04-14 07:13:43 -0400] [47487] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:13:43 -0400] [47487] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:13:43 -0400] [47487] [ERROR] Retrying in 1 second.
+[2019-04-14 07:13:44 -0400] [47487] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:13:44 -0400] [47487] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:13:44 -0400] [47487] [ERROR] Retrying in 1 second.
+[2019-04-14 07:13:45 -0400] [47487] [ERROR] Can't connect to ('0.0.0.0', 4000)
+[2019-04-14 07:14:40 -0400] [47526] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x102af2620>
+  on_reload: <function OnReload.on_reload at 0x102af2730>
+  when_ready: <function WhenReady.when_ready at 0x102af2840>
+  pre_fork: <function Prefork.pre_fork at 0x102af2950>
+  post_fork: <function Postfork.post_fork at 0x102af2a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x102af2b70>
+  worker_int: <function WorkerInt.worker_int at 0x102af2c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x102af2d90>
+  pre_exec: <function PreExec.pre_exec at 0x102af2ea0>
+  pre_request: <function PreRequest.pre_request at 0x102ba0048>
+  post_request: <function PostRequest.post_request at 0x102ba00d0>
+  child_exit: <function ChildExit.child_exit at 0x102ba01e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x102ba02f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x102ba0400>
+  on_exit: <function OnExit.on_exit at 0x102ba0510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:14:40 -0400] [47526] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:14:40 -0400] [47526] [DEBUG] Arbiter booted
+[2019-04-14 07:14:40 -0400] [47526] [INFO] Listening at: http://0.0.0.0:4000 (47526)
+[2019-04-14 07:14:40 -0400] [47526] [INFO] Using worker: gevent
+[2019-04-14 07:14:40 -0400] [47529] [INFO] Booting worker with pid: 47529
+[2019-04-14 07:14:40 -0400] [47526] [DEBUG] 1 workers
+[2019-04-14 07:14:45 -0400] [47529] [DEBUG] GET /
+[2019-04-14 07:14:45 -0400] [47529] [DEBUG] GET /static/style.css
+[2019-04-14 07:14:45 -0400] [47529] [DEBUG] GET /video
+[2019-04-14 07:15:05 -0400] [47529] [DEBUG] GET /static/logo1.png
+[2019-04-14 07:15:05 -0400] [47529] [DEBUG] GET /static/mlh.png
+[2019-04-14 07:15:05 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:15:06 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:15:06 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:15:06 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:15:06 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:15:32 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:15:32 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:15:58 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:15:58 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:16:24 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:16:24 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:16:50 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:16:50 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:16:51 -0400] [47558] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10dac9620>
+  on_reload: <function OnReload.on_reload at 0x10dac9730>
+  when_ready: <function WhenReady.when_ready at 0x10dac9840>
+  pre_fork: <function Prefork.pre_fork at 0x10dac9950>
+  post_fork: <function Postfork.post_fork at 0x10dac9a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10dac9b70>
+  worker_int: <function WorkerInt.worker_int at 0x10dac9c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10dac9d90>
+  pre_exec: <function PreExec.pre_exec at 0x10dac9ea0>
+  pre_request: <function PreRequest.pre_request at 0x10db77048>
+  post_request: <function PostRequest.post_request at 0x10db770d0>
+  child_exit: <function ChildExit.child_exit at 0x10db771e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10db772f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10db77400>
+  on_exit: <function OnExit.on_exit at 0x10db77510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:16:51 -0400] [47558] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:16:51 -0400] [47558] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:16:51 -0400] [47558] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:16:51 -0400] [47558] [ERROR] Retrying in 1 second.
+[2019-04-14 07:16:52 -0400] [47558] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:16:52 -0400] [47558] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:16:52 -0400] [47558] [ERROR] Retrying in 1 second.
+[2019-04-14 07:16:53 -0400] [47558] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:16:53 -0400] [47558] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:16:53 -0400] [47558] [ERROR] Retrying in 1 second.
+[2019-04-14 07:16:54 -0400] [47558] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:16:54 -0400] [47558] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:16:54 -0400] [47558] [ERROR] Retrying in 1 second.
+[2019-04-14 07:16:54 -0400] [47529] [DEBUG] GET /
+[2019-04-14 07:16:54 -0400] [47529] [DEBUG] GET /video
+[2019-04-14 07:16:55 -0400] [47558] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:16:55 -0400] [47558] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:16:55 -0400] [47558] [ERROR] Retrying in 1 second.
+[2019-04-14 07:16:56 -0400] [47558] [ERROR] Can't connect to ('0.0.0.0', 4000)
+[2019-04-14 07:16:59 -0400] [47529] [DEBUG] Ignoring connection reset
+[2019-04-14 07:16:59 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:16:59 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:16:59 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:16:59 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:17:25 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:17:25 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:17:46 -0400] [47595] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10daf5620>
+  on_reload: <function OnReload.on_reload at 0x10daf5730>
+  when_ready: <function WhenReady.when_ready at 0x10daf5840>
+  pre_fork: <function Prefork.pre_fork at 0x10daf5950>
+  post_fork: <function Postfork.post_fork at 0x10daf5a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10daf5b70>
+  worker_int: <function WorkerInt.worker_int at 0x10daf5c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10daf5d90>
+  pre_exec: <function PreExec.pre_exec at 0x10daf5ea0>
+  pre_request: <function PreRequest.pre_request at 0x10dba3048>
+  post_request: <function PostRequest.post_request at 0x10dba30d0>
+  child_exit: <function ChildExit.child_exit at 0x10dba31e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10dba32f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10dba3400>
+  on_exit: <function OnExit.on_exit at 0x10dba3510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:17:46 -0400] [47595] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:17:46 -0400] [47595] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:17:46 -0400] [47595] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:17:46 -0400] [47595] [ERROR] Retrying in 1 second.
+[2019-04-14 07:17:47 -0400] [47595] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:17:47 -0400] [47595] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:17:47 -0400] [47595] [ERROR] Retrying in 1 second.
+[2019-04-14 07:17:48 -0400] [47595] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:17:48 -0400] [47595] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:17:48 -0400] [47595] [ERROR] Retrying in 1 second.
+[2019-04-14 07:17:48 -0400] [47529] [DEBUG] GET /
+[2019-04-14 07:17:48 -0400] [47529] [DEBUG] GET /video
+[2019-04-14 07:17:49 -0400] [47595] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:17:49 -0400] [47595] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:17:49 -0400] [47595] [ERROR] Retrying in 1 second.
+[2019-04-14 07:17:50 -0400] [47595] [ERROR] Connection in use: ('0.0.0.0', 4000)
+[2019-04-14 07:17:50 -0400] [47595] [DEBUG] connection to ('0.0.0.0', 4000) failed: [Errno 48] Address already in use
+[2019-04-14 07:17:50 -0400] [47595] [ERROR] Retrying in 1 second.
+[2019-04-14 07:17:51 -0400] [47595] [ERROR] Can't connect to ('0.0.0.0', 4000)
+[2019-04-14 07:17:53 -0400] [47529] [DEBUG] Ignoring EPIPE
+[2019-04-14 07:17:53 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:17:53 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:17:53 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:17:53 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:18:19 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:18:19 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:18:45 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:18:45 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:19:16 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:19:16 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:19:44 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:19:44 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:20:09 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:20:09 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:20:35 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:20:35 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:21:01 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:21:01 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:21:27 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:21:27 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:21:54 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:21:54 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:22:20 -0400] [47529] [DEBUG] POST /socket.io/
+[2019-04-14 07:22:20 -0400] [47529] [DEBUG] GET /socket.io/
+[2019-04-14 07:22:33 -0400] [47676] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10da9a620>
+  on_reload: <function OnReload.on_reload at 0x10da9a730>
+  when_ready: <function WhenReady.when_ready at 0x10da9a840>
+  pre_fork: <function Prefork.pre_fork at 0x10da9a950>
+  post_fork: <function Postfork.post_fork at 0x10da9aa60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10da9ab70>
+  worker_int: <function WorkerInt.worker_int at 0x10da9ac80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10da9ad90>
+  pre_exec: <function PreExec.pre_exec at 0x10da9aea0>
+  pre_request: <function PreRequest.pre_request at 0x10db49048>
+  post_request: <function PostRequest.post_request at 0x10db490d0>
+  child_exit: <function ChildExit.child_exit at 0x10db491e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10db492f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10db49400>
+  on_exit: <function OnExit.on_exit at 0x10db49510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:22:33 -0400] [47676] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:22:33 -0400] [47676] [DEBUG] Arbiter booted
+[2019-04-14 07:22:33 -0400] [47676] [INFO] Listening at: http://0.0.0.0:4000 (47676)
+[2019-04-14 07:22:33 -0400] [47676] [INFO] Using worker: gevent
+[2019-04-14 07:22:33 -0400] [47681] [INFO] Booting worker with pid: 47681
+[2019-04-14 07:22:33 -0400] [47676] [DEBUG] 1 workers
+[2019-04-14 07:22:38 -0400] [47681] [DEBUG] GET /
+[2019-04-14 07:22:38 -0400] [47681] [DEBUG] GET /static/style.css
+[2019-04-14 07:22:38 -0400] [47681] [DEBUG] GET /video
+[2019-04-14 07:24:38 -0400] [47676] [CRITICAL] WORKER TIMEOUT (pid:47681)
+[2019-04-14 07:24:38 -0400] [47681] [DEBUG] GET /socket.io/
+[2019-04-14 07:24:38 -0400] [47681] [DEBUG] GET /socket.io/
+[2019-04-14 07:24:41 -0400] [47681] [INFO] Worker exiting (pid: 47681)
+[2019-04-14 07:24:42 -0400] [47699] [INFO] Booting worker with pid: 47699
+[2019-04-14 07:24:46 -0400] [47699] [DEBUG] GET /emitter
+[2019-04-14 07:24:46 -0400] [47699] [DEBUG] GET /socket.io/
+[2019-04-14 07:24:46 -0400] [47699] [DEBUG] GET /socket.io/
+[2019-04-14 07:24:46 -0400] [47699] [DEBUG] GET /socket.io/
+[2019-04-14 07:24:46 -0400] [47699] [DEBUG] GET /socket.io/
+[2019-04-14 07:24:46 -0400] [47699] [DEBUG] Ignoring connection reset
+[2019-04-14 07:25:34 -0400] [47737] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x107848620>
+  on_reload: <function OnReload.on_reload at 0x107848730>
+  when_ready: <function WhenReady.when_ready at 0x107848840>
+  pre_fork: <function Prefork.pre_fork at 0x107848950>
+  post_fork: <function Postfork.post_fork at 0x107848a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x107848b70>
+  worker_int: <function WorkerInt.worker_int at 0x107848c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x107848d90>
+  pre_exec: <function PreExec.pre_exec at 0x107848ea0>
+  pre_request: <function PreRequest.pre_request at 0x1078f6048>
+  post_request: <function PostRequest.post_request at 0x1078f60d0>
+  child_exit: <function ChildExit.child_exit at 0x1078f61e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1078f62f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1078f6400>
+  on_exit: <function OnExit.on_exit at 0x1078f6510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:25:34 -0400] [47737] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:25:34 -0400] [47737] [DEBUG] Arbiter booted
+[2019-04-14 07:25:34 -0400] [47737] [INFO] Listening at: http://0.0.0.0:4000 (47737)
+[2019-04-14 07:25:34 -0400] [47737] [INFO] Using worker: gevent
+[2019-04-14 07:25:34 -0400] [47741] [INFO] Booting worker with pid: 47741
+[2019-04-14 07:25:34 -0400] [47737] [DEBUG] 1 workers
+[2019-04-14 07:25:40 -0400] [47741] [DEBUG] GET /emitter
+[2019-04-14 07:25:41 -0400] [47741] [DEBUG] GET /emitter
+[2019-04-14 07:25:42 -0400] [47741] [DEBUG] GET /
+[2019-04-14 07:25:42 -0400] [47741] [DEBUG] GET /static/style.css
+[2019-04-14 07:25:43 -0400] [47741] [DEBUG] GET /video
+[2019-04-14 07:25:53 -0400] [47757] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10bf8c620>
+  on_reload: <function OnReload.on_reload at 0x10bf8c730>
+  when_ready: <function WhenReady.when_ready at 0x10bf8c840>
+  pre_fork: <function Prefork.pre_fork at 0x10bf8c950>
+  post_fork: <function Postfork.post_fork at 0x10bf8ca60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10bf8cb70>
+  worker_int: <function WorkerInt.worker_int at 0x10bf8cc80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10bf8cd90>
+  pre_exec: <function PreExec.pre_exec at 0x10bf8cea0>
+  pre_request: <function PreRequest.pre_request at 0x10c03a048>
+  post_request: <function PostRequest.post_request at 0x10c03a0d0>
+  child_exit: <function ChildExit.child_exit at 0x10c03a1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10c03a2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10c03a400>
+  on_exit: <function OnExit.on_exit at 0x10c03a510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:25:53 -0400] [47757] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:25:53 -0400] [47757] [DEBUG] Arbiter booted
+[2019-04-14 07:25:53 -0400] [47757] [INFO] Listening at: http://0.0.0.0:4000 (47757)
+[2019-04-14 07:25:53 -0400] [47757] [INFO] Using worker: gevent
+[2019-04-14 07:25:53 -0400] [47761] [INFO] Booting worker with pid: 47761
+[2019-04-14 07:25:53 -0400] [47757] [DEBUG] 1 workers
+[2019-04-14 07:26:00 -0400] [47761] [DEBUG] GET /emitter
+[2019-04-14 07:30:19 -0400] [47761] [DEBUG] GET /emitter
+[2019-04-14 07:30:21 -0400] [47761] [DEBUG] GET /emitter
+[2019-04-14 07:30:22 -0400] [47761] [DEBUG] GET /emitter
+[2019-04-14 07:30:23 -0400] [47761] [DEBUG] GET /emitter
+[2019-04-14 07:30:27 -0400] [47788] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1090b0620>
+  on_reload: <function OnReload.on_reload at 0x1090b0730>
+  when_ready: <function WhenReady.when_ready at 0x1090b0840>
+  pre_fork: <function Prefork.pre_fork at 0x1090b0950>
+  post_fork: <function Postfork.post_fork at 0x1090b0a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1090b0b70>
+  worker_int: <function WorkerInt.worker_int at 0x1090b0c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1090b0d90>
+  pre_exec: <function PreExec.pre_exec at 0x1090b0ea0>
+  pre_request: <function PreRequest.pre_request at 0x10915e048>
+  post_request: <function PostRequest.post_request at 0x10915e0d0>
+  child_exit: <function ChildExit.child_exit at 0x10915e1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10915e2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10915e400>
+  on_exit: <function OnExit.on_exit at 0x10915e510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:30:27 -0400] [47788] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:30:27 -0400] [47788] [DEBUG] Arbiter booted
+[2019-04-14 07:30:27 -0400] [47788] [INFO] Listening at: http://0.0.0.0:4000 (47788)
+[2019-04-14 07:30:27 -0400] [47788] [INFO] Using worker: gevent
+[2019-04-14 07:30:27 -0400] [47792] [INFO] Booting worker with pid: 47792
+[2019-04-14 07:30:27 -0400] [47788] [DEBUG] 1 workers
+[2019-04-14 07:31:24 -0400] [47828] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10dc4b620>
+  on_reload: <function OnReload.on_reload at 0x10dc4b730>
+  when_ready: <function WhenReady.when_ready at 0x10dc4b840>
+  pre_fork: <function Prefork.pre_fork at 0x10dc4b950>
+  post_fork: <function Postfork.post_fork at 0x10dc4ba60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10dc4bb70>
+  worker_int: <function WorkerInt.worker_int at 0x10dc4bc80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10dc4bd90>
+  pre_exec: <function PreExec.pre_exec at 0x10dc4bea0>
+  pre_request: <function PreRequest.pre_request at 0x10dcfa048>
+  post_request: <function PostRequest.post_request at 0x10dcfa0d0>
+  child_exit: <function ChildExit.child_exit at 0x10dcfa1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10dcfa2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10dcfa400>
+  on_exit: <function OnExit.on_exit at 0x10dcfa510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:31:24 -0400] [47828] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:31:24 -0400] [47828] [DEBUG] Arbiter booted
+[2019-04-14 07:31:24 -0400] [47828] [INFO] Listening at: http://0.0.0.0:4000 (47828)
+[2019-04-14 07:31:24 -0400] [47828] [INFO] Using worker: gevent
+[2019-04-14 07:31:24 -0400] [47831] [INFO] Booting worker with pid: 47831
+[2019-04-14 07:31:24 -0400] [47828] [DEBUG] 1 workers
+[2019-04-14 07:31:30 -0400] [47831] [DEBUG] GET /emitter
+[2019-04-14 07:31:31 -0400] [47831] [DEBUG] GET /emitter
+[2019-04-14 07:34:29 -0400] [47861] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x107e79620>
+  on_reload: <function OnReload.on_reload at 0x107e79730>
+  when_ready: <function WhenReady.when_ready at 0x107e79840>
+  pre_fork: <function Prefork.pre_fork at 0x107e79950>
+  post_fork: <function Postfork.post_fork at 0x107e79a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x107e79b70>
+  worker_int: <function WorkerInt.worker_int at 0x107e79c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x107e79d90>
+  pre_exec: <function PreExec.pre_exec at 0x107e79ea0>
+  pre_request: <function PreRequest.pre_request at 0x107f27048>
+  post_request: <function PostRequest.post_request at 0x107f270d0>
+  child_exit: <function ChildExit.child_exit at 0x107f271e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x107f272f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x107f27400>
+  on_exit: <function OnExit.on_exit at 0x107f27510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:34:29 -0400] [47861] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:34:29 -0400] [47861] [DEBUG] Arbiter booted
+[2019-04-14 07:34:29 -0400] [47861] [INFO] Listening at: http://0.0.0.0:4000 (47861)
+[2019-04-14 07:34:29 -0400] [47861] [INFO] Using worker: gevent
+[2019-04-14 07:34:29 -0400] [47865] [INFO] Booting worker with pid: 47865
+[2019-04-14 07:34:29 -0400] [47861] [DEBUG] 1 workers
+[2019-04-14 07:35:17 -0400] [47896] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x107dbf620>
+  on_reload: <function OnReload.on_reload at 0x107dbf730>
+  when_ready: <function WhenReady.when_ready at 0x107dbf840>
+  pre_fork: <function Prefork.pre_fork at 0x107dbf950>
+  post_fork: <function Postfork.post_fork at 0x107dbfa60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x107dbfb70>
+  worker_int: <function WorkerInt.worker_int at 0x107dbfc80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x107dbfd90>
+  pre_exec: <function PreExec.pre_exec at 0x107dbfea0>
+  pre_request: <function PreRequest.pre_request at 0x107e6e048>
+  post_request: <function PostRequest.post_request at 0x107e6e0d0>
+  child_exit: <function ChildExit.child_exit at 0x107e6e1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x107e6e2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x107e6e400>
+  on_exit: <function OnExit.on_exit at 0x107e6e510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:35:17 -0400] [47896] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:35:17 -0400] [47896] [DEBUG] Arbiter booted
+[2019-04-14 07:35:17 -0400] [47896] [INFO] Listening at: http://0.0.0.0:4000 (47896)
+[2019-04-14 07:35:17 -0400] [47896] [INFO] Using worker: gevent
+[2019-04-14 07:35:17 -0400] [47899] [INFO] Booting worker with pid: 47899
+[2019-04-14 07:35:17 -0400] [47896] [DEBUG] 1 workers
+[2019-04-14 07:35:50 -0400] [47899] [DEBUG] GET /emitter
+[2019-04-14 07:35:51 -0400] [47899] [DEBUG] GET /emitter
+[2019-04-14 07:39:38 -0400] [47957] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x110357620>
+  on_reload: <function OnReload.on_reload at 0x110357730>
+  when_ready: <function WhenReady.when_ready at 0x110357840>
+  pre_fork: <function Prefork.pre_fork at 0x110357950>
+  post_fork: <function Postfork.post_fork at 0x110357a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x110357b70>
+  worker_int: <function WorkerInt.worker_int at 0x110357c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x110357d90>
+  pre_exec: <function PreExec.pre_exec at 0x110357ea0>
+  pre_request: <function PreRequest.pre_request at 0x110405048>
+  post_request: <function PostRequest.post_request at 0x1104050d0>
+  child_exit: <function ChildExit.child_exit at 0x1104051e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1104052f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x110405400>
+  on_exit: <function OnExit.on_exit at 0x110405510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:39:38 -0400] [47957] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:39:38 -0400] [47957] [DEBUG] Arbiter booted
+[2019-04-14 07:39:38 -0400] [47957] [INFO] Listening at: http://0.0.0.0:4000 (47957)
+[2019-04-14 07:39:38 -0400] [47957] [INFO] Using worker: gevent
+[2019-04-14 07:39:38 -0400] [47960] [INFO] Booting worker with pid: 47960
+[2019-04-14 07:39:38 -0400] [47957] [DEBUG] 1 workers
+[2019-04-14 07:39:47 -0400] [47960] [DEBUG] GET /emitter
+[2019-04-14 07:39:48 -0400] [47960] [DEBUG] GET /emitter
+[2019-04-14 07:55:13 -0400] [48095] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1089c6620>
+  on_reload: <function OnReload.on_reload at 0x1089c6730>
+  when_ready: <function WhenReady.when_ready at 0x1089c6840>
+  pre_fork: <function Prefork.pre_fork at 0x1089c6950>
+  post_fork: <function Postfork.post_fork at 0x1089c6a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1089c6b70>
+  worker_int: <function WorkerInt.worker_int at 0x1089c6c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1089c6d90>
+  pre_exec: <function PreExec.pre_exec at 0x1089c6ea0>
+  pre_request: <function PreRequest.pre_request at 0x108a74048>
+  post_request: <function PostRequest.post_request at 0x108a740d0>
+  child_exit: <function ChildExit.child_exit at 0x108a741e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x108a742f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x108a74400>
+  on_exit: <function OnExit.on_exit at 0x108a74510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:55:13 -0400] [48095] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:55:13 -0400] [48095] [DEBUG] Arbiter booted
+[2019-04-14 07:55:13 -0400] [48095] [INFO] Listening at: http://0.0.0.0:4000 (48095)
+[2019-04-14 07:55:13 -0400] [48095] [INFO] Using worker: gevent
+[2019-04-14 07:55:13 -0400] [48098] [INFO] Booting worker with pid: 48098
+[2019-04-14 07:55:13 -0400] [48095] [DEBUG] 1 workers
+[2019-04-14 07:55:17 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:17 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:55:17 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:17 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:20 -0400] [48098] [DEBUG] GET /emitter
+[2019-04-14 07:55:20 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:29 -0400] [48098] [DEBUG] GET /emitter
+[2019-04-14 07:55:29 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:29 -0400] [48098] [DEBUG] GET /emitter
+[2019-04-14 07:55:29 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:30 -0400] [48098] [DEBUG] GET /emitter
+[2019-04-14 07:55:30 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:30 -0400] [48098] [DEBUG] GET /emitter
+[2019-04-14 07:55:30 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:55:44 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:55:44 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:56:10 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:56:10 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:56:46 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:56:46 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:57:17 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:57:17 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:57:18 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:57:20 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:57:20 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:57:20 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:57:20 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:57:50 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:57:50 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:58:16 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:58:16 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:58:42 -0400] [48098] [DEBUG] POST /socket.io/
+[2019-04-14 07:58:42 -0400] [48098] [DEBUG] GET /socket.io/
+[2019-04-14 07:59:05 -0400] [48131] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10616a620>
+  on_reload: <function OnReload.on_reload at 0x10616a730>
+  when_ready: <function WhenReady.when_ready at 0x10616a840>
+  pre_fork: <function Prefork.pre_fork at 0x10616a950>
+  post_fork: <function Postfork.post_fork at 0x10616aa60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10616ab70>
+  worker_int: <function WorkerInt.worker_int at 0x10616ac80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10616ad90>
+  pre_exec: <function PreExec.pre_exec at 0x10616aea0>
+  pre_request: <function PreRequest.pre_request at 0x106218048>
+  post_request: <function PostRequest.post_request at 0x1062180d0>
+  child_exit: <function ChildExit.child_exit at 0x1062181e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1062182f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x106218400>
+  on_exit: <function OnExit.on_exit at 0x106218510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 07:59:05 -0400] [48131] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 07:59:05 -0400] [48131] [DEBUG] Arbiter booted
+[2019-04-14 07:59:05 -0400] [48131] [INFO] Listening at: http://0.0.0.0:4000 (48131)
+[2019-04-14 07:59:05 -0400] [48131] [INFO] Using worker: gevent
+[2019-04-14 07:59:05 -0400] [48135] [INFO] Booting worker with pid: 48135
+[2019-04-14 07:59:05 -0400] [48131] [DEBUG] 1 workers
+[2019-04-14 07:59:09 -0400] [48135] [DEBUG] POST /socket.io/
+[2019-04-14 07:59:10 -0400] [48135] [DEBUG] POST /socket.io/
+[2019-04-14 07:59:11 -0400] [48135] [DEBUG] GET /emitter
+[2019-04-14 07:59:11 -0400] [48135] [DEBUG] GET /socket.io/
+[2019-04-14 07:59:11 -0400] [48135] [DEBUG] POST /socket.io/
+[2019-04-14 07:59:11 -0400] [48135] [DEBUG] GET /socket.io/
+[2019-04-14 07:59:11 -0400] [48135] [DEBUG] GET /socket.io/
+[2019-04-14 07:59:12 -0400] [48135] [DEBUG] GET /emitter
+[2019-04-14 07:59:12 -0400] [48135] [DEBUG] GET /socket.io/
+[2019-04-14 07:59:37 -0400] [48135] [DEBUG] POST /socket.io/
+[2019-04-14 07:59:37 -0400] [48135] [DEBUG] GET /socket.io/
+[2019-04-14 07:59:38 -0400] [48135] [DEBUG] GET /
+[2019-04-14 07:59:38 -0400] [48135] [DEBUG] GET /static/style.css
+[2019-04-14 07:59:38 -0400] [48135] [DEBUG] GET /static/logo1.png
+[2019-04-14 07:59:38 -0400] [48135] [DEBUG] GET /video
+[2019-04-14 08:00:17 -0400] [48160] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10198d620>
+  on_reload: <function OnReload.on_reload at 0x10198d730>
+  when_ready: <function WhenReady.when_ready at 0x10198d840>
+  pre_fork: <function Prefork.pre_fork at 0x10198d950>
+  post_fork: <function Postfork.post_fork at 0x10198da60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10198db70>
+  worker_int: <function WorkerInt.worker_int at 0x10198dc80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10198dd90>
+  pre_exec: <function PreExec.pre_exec at 0x10198dea0>
+  pre_request: <function PreRequest.pre_request at 0x101a3c048>
+  post_request: <function PostRequest.post_request at 0x101a3c0d0>
+  child_exit: <function ChildExit.child_exit at 0x101a3c1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x101a3c2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x101a3c400>
+  on_exit: <function OnExit.on_exit at 0x101a3c510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:00:17 -0400] [48160] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:00:17 -0400] [48160] [DEBUG] Arbiter booted
+[2019-04-14 08:00:17 -0400] [48160] [INFO] Listening at: http://0.0.0.0:4000 (48160)
+[2019-04-14 08:00:17 -0400] [48160] [INFO] Using worker: gevent
+[2019-04-14 08:00:17 -0400] [48164] [INFO] Booting worker with pid: 48164
+[2019-04-14 08:00:17 -0400] [48160] [DEBUG] 1 workers
+[2019-04-14 08:00:23 -0400] [48164] [DEBUG] GET /
+[2019-04-14 08:00:23 -0400] [48164] [DEBUG] GET /socket.io/
+[2019-04-14 08:00:23 -0400] [48164] [DEBUG] POST /socket.io/
+[2019-04-14 08:00:23 -0400] [48164] [DEBUG] GET /socket.io/
+[2019-04-14 08:00:23 -0400] [48164] [DEBUG] GET /static/style.css
+[2019-04-14 08:00:23 -0400] [48164] [DEBUG] GET /video
+[2019-04-14 08:01:33 -0400] [48195] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10b94e620>
+  on_reload: <function OnReload.on_reload at 0x10b94e730>
+  when_ready: <function WhenReady.when_ready at 0x10b94e840>
+  pre_fork: <function Prefork.pre_fork at 0x10b94e950>
+  post_fork: <function Postfork.post_fork at 0x10b94ea60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10b94eb70>
+  worker_int: <function WorkerInt.worker_int at 0x10b94ec80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10b94ed90>
+  pre_exec: <function PreExec.pre_exec at 0x10b94eea0>
+  pre_request: <function PreRequest.pre_request at 0x10b9fd048>
+  post_request: <function PostRequest.post_request at 0x10b9fd0d0>
+  child_exit: <function ChildExit.child_exit at 0x10b9fd1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10b9fd2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10b9fd400>
+  on_exit: <function OnExit.on_exit at 0x10b9fd510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:01:33 -0400] [48195] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:01:33 -0400] [48195] [DEBUG] Arbiter booted
+[2019-04-14 08:01:33 -0400] [48195] [INFO] Listening at: http://0.0.0.0:4000 (48195)
+[2019-04-14 08:01:33 -0400] [48195] [INFO] Using worker: gevent
+[2019-04-14 08:01:33 -0400] [48199] [INFO] Booting worker with pid: 48199
+[2019-04-14 08:01:33 -0400] [48195] [DEBUG] 1 workers
+[2019-04-14 08:01:38 -0400] [48199] [DEBUG] GET /
+[2019-04-14 08:01:38 -0400] [48199] [DEBUG] GET /static/style.css
+[2019-04-14 08:01:38 -0400] [48199] [DEBUG] GET /video
+[2019-04-14 08:02:03 -0400] [48199] [DEBUG] GET /static/mlh.png
+[2019-04-14 08:02:03 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:03 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:03 -0400] [48199] [DEBUG] POST /socket.io/
+[2019-04-14 08:02:03 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:03 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:04 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:04 -0400] [48199] [DEBUG] POST /socket.io/
+[2019-04-14 08:02:04 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:04 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:29 -0400] [48199] [DEBUG] POST /socket.io/
+[2019-04-14 08:02:29 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:32 -0400] [48199] [DEBUG] POST /socket.io/
+[2019-04-14 08:02:32 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:55 -0400] [48199] [DEBUG] POST /socket.io/
+[2019-04-14 08:02:55 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:02:58 -0400] [48199] [DEBUG] POST /socket.io/
+[2019-04-14 08:02:58 -0400] [48199] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:01 -0400] [48241] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x107368620>
+  on_reload: <function OnReload.on_reload at 0x107368730>
+  when_ready: <function WhenReady.when_ready at 0x107368840>
+  pre_fork: <function Prefork.pre_fork at 0x107368950>
+  post_fork: <function Postfork.post_fork at 0x107368a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x107368b70>
+  worker_int: <function WorkerInt.worker_int at 0x107368c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x107368d90>
+  pre_exec: <function PreExec.pre_exec at 0x107368ea0>
+  pre_request: <function PreRequest.pre_request at 0x107417048>
+  post_request: <function PostRequest.post_request at 0x1074170d0>
+  child_exit: <function ChildExit.child_exit at 0x1074171e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1074172f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x107417400>
+  on_exit: <function OnExit.on_exit at 0x107417510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:03:01 -0400] [48241] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:03:01 -0400] [48241] [DEBUG] Arbiter booted
+[2019-04-14 08:03:01 -0400] [48241] [INFO] Listening at: http://0.0.0.0:4000 (48241)
+[2019-04-14 08:03:01 -0400] [48241] [INFO] Using worker: gevent
+[2019-04-14 08:03:01 -0400] [48245] [INFO] Booting worker with pid: 48245
+[2019-04-14 08:03:01 -0400] [48241] [DEBUG] 1 workers
+[2019-04-14 08:03:06 -0400] [48245] [DEBUG] GET /
+[2019-04-14 08:03:06 -0400] [48245] [DEBUG] GET /static/style.css
+[2019-04-14 08:03:06 -0400] [48245] [DEBUG] GET /video
+[2019-04-14 08:03:30 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:30 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:03:30 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:30 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:03:30 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:30 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:31 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:03:32 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:32 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:03:32 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:32 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:56 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:03:56 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:03:58 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:03:58 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:04:22 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:04:22 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:04:24 -0400] [48245] [DEBUG] POST /socket.io/
+[2019-04-14 08:04:24 -0400] [48245] [DEBUG] GET /socket.io/
+[2019-04-14 08:04:31 -0400] [48283] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x108e4d620>
+  on_reload: <function OnReload.on_reload at 0x108e4d730>
+  when_ready: <function WhenReady.when_ready at 0x108e4d840>
+  pre_fork: <function Prefork.pre_fork at 0x108e4d950>
+  post_fork: <function Postfork.post_fork at 0x108e4da60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x108e4db70>
+  worker_int: <function WorkerInt.worker_int at 0x108e4dc80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x108e4dd90>
+  pre_exec: <function PreExec.pre_exec at 0x108e4dea0>
+  pre_request: <function PreRequest.pre_request at 0x108efb048>
+  post_request: <function PostRequest.post_request at 0x108efb0d0>
+  child_exit: <function ChildExit.child_exit at 0x108efb1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x108efb2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x108efb400>
+  on_exit: <function OnExit.on_exit at 0x108efb510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:04:31 -0400] [48283] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:04:31 -0400] [48283] [DEBUG] Arbiter booted
+[2019-04-14 08:04:31 -0400] [48283] [INFO] Listening at: http://0.0.0.0:4000 (48283)
+[2019-04-14 08:04:31 -0400] [48283] [INFO] Using worker: gevent
+[2019-04-14 08:04:31 -0400] [48287] [INFO] Booting worker with pid: 48287
+[2019-04-14 08:04:31 -0400] [48283] [DEBUG] 1 workers
+[2019-04-14 08:04:36 -0400] [48287] [DEBUG] GET /
+[2019-04-14 08:04:36 -0400] [48287] [DEBUG] GET /static/style.css
+[2019-04-14 08:04:36 -0400] [48287] [DEBUG] GET /video
+[2019-04-14 08:05:03 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:03 -0400] [48287] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:03 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:03 -0400] [48287] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:03 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:03 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:03 -0400] [48287] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:04 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:04 -0400] [48287] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:04 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:04 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:28 -0400] [48287] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:28 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:30 -0400] [48287] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:30 -0400] [48287] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:43 -0400] [48314] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1063b1620>
+  on_reload: <function OnReload.on_reload at 0x1063b1730>
+  when_ready: <function WhenReady.when_ready at 0x1063b1840>
+  pre_fork: <function Prefork.pre_fork at 0x1063b1950>
+  post_fork: <function Postfork.post_fork at 0x1063b1a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1063b1b70>
+  worker_int: <function WorkerInt.worker_int at 0x1063b1c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1063b1d90>
+  pre_exec: <function PreExec.pre_exec at 0x1063b1ea0>
+  pre_request: <function PreRequest.pre_request at 0x10645f048>
+  post_request: <function PostRequest.post_request at 0x10645f0d0>
+  child_exit: <function ChildExit.child_exit at 0x10645f1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10645f2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10645f400>
+  on_exit: <function OnExit.on_exit at 0x10645f510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:05:43 -0400] [48314] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:05:43 -0400] [48314] [DEBUG] Arbiter booted
+[2019-04-14 08:05:43 -0400] [48314] [INFO] Listening at: http://0.0.0.0:4000 (48314)
+[2019-04-14 08:05:43 -0400] [48314] [INFO] Using worker: gevent
+[2019-04-14 08:05:43 -0400] [48318] [INFO] Booting worker with pid: 48318
+[2019-04-14 08:05:43 -0400] [48314] [DEBUG] 1 workers
+[2019-04-14 08:05:48 -0400] [48318] [DEBUG] GET /
+[2019-04-14 08:05:48 -0400] [48318] [DEBUG] GET /static/style.css
+[2019-04-14 08:05:48 -0400] [48318] [DEBUG] GET /video
+[2019-04-14 08:05:52 -0400] [48318] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 114, in handle_request
+    for item in respiter:
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wsgi.py", line 870, in __next__
+    return self._next()
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wrappers.py", line 82, in _iter_encoded
+    for item in iterable:
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 46, in generate_frame
+    if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
+IndexError: list index out of range
+[2019-04-14 08:05:52 -0400] [48318] [DEBUG] Closing connection. 
+[2019-04-14 08:05:52 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:52 -0400] [48318] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:52 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:52 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:05:57 -0400] [48318] [DEBUG] POST /socket.io/
+[2019-04-14 08:05:58 -0400] [48318] [DEBUG] GET /
+[2019-04-14 08:05:58 -0400] [48318] [DEBUG] GET /video
+[2019-04-14 08:06:01 -0400] [48318] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 114, in handle_request
+    for item in respiter:
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wsgi.py", line 870, in __next__
+    return self._next()
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wrappers.py", line 82, in _iter_encoded
+    for item in iterable:
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 46, in generate_frame
+    if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
+IndexError: list index out of range
+[2019-04-14 08:06:01 -0400] [48318] [DEBUG] Closing connection. 
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:02 -0400] [48318] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:15 -0400] [48334] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x10cc90620>
+  on_reload: <function OnReload.on_reload at 0x10cc90730>
+  when_ready: <function WhenReady.when_ready at 0x10cc90840>
+  pre_fork: <function Prefork.pre_fork at 0x10cc90950>
+  post_fork: <function Postfork.post_fork at 0x10cc90a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x10cc90b70>
+  worker_int: <function WorkerInt.worker_int at 0x10cc90c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x10cc90d90>
+  pre_exec: <function PreExec.pre_exec at 0x10cc90ea0>
+  pre_request: <function PreRequest.pre_request at 0x10cd3f048>
+  post_request: <function PostRequest.post_request at 0x10cd3f0d0>
+  child_exit: <function ChildExit.child_exit at 0x10cd3f1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10cd3f2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10cd3f400>
+  on_exit: <function OnExit.on_exit at 0x10cd3f510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:06:15 -0400] [48334] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:06:15 -0400] [48334] [DEBUG] Arbiter booted
+[2019-04-14 08:06:15 -0400] [48334] [INFO] Listening at: http://0.0.0.0:4000 (48334)
+[2019-04-14 08:06:15 -0400] [48334] [INFO] Using worker: gevent
+[2019-04-14 08:06:15 -0400] [48338] [INFO] Booting worker with pid: 48338
+[2019-04-14 08:06:15 -0400] [48334] [DEBUG] 1 workers
+[2019-04-14 08:06:20 -0400] [48338] [DEBUG] GET /
+[2019-04-14 08:06:20 -0400] [48338] [DEBUG] GET /static/style.css
+[2019-04-14 08:06:20 -0400] [48338] [DEBUG] GET /video
+[2019-04-14 08:06:27 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:27 -0400] [48338] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:27 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:27 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:29 -0400] [48338] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:30 -0400] [48338] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:31 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:31 -0400] [48338] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:31 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:31 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:53 -0400] [48338] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:53 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:06:57 -0400] [48338] [DEBUG] POST /socket.io/
+[2019-04-14 08:06:57 -0400] [48338] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:13 -0400] [48362] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1038be620>
+  on_reload: <function OnReload.on_reload at 0x1038be730>
+  when_ready: <function WhenReady.when_ready at 0x1038be840>
+  pre_fork: <function Prefork.pre_fork at 0x1038be950>
+  post_fork: <function Postfork.post_fork at 0x1038bea60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1038beb70>
+  worker_int: <function WorkerInt.worker_int at 0x1038bec80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1038bed90>
+  pre_exec: <function PreExec.pre_exec at 0x1038beea0>
+  pre_request: <function PreRequest.pre_request at 0x10396c048>
+  post_request: <function PostRequest.post_request at 0x10396c0d0>
+  child_exit: <function ChildExit.child_exit at 0x10396c1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10396c2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10396c400>
+  on_exit: <function OnExit.on_exit at 0x10396c510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:07:13 -0400] [48362] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:07:13 -0400] [48362] [DEBUG] Arbiter booted
+[2019-04-14 08:07:13 -0400] [48362] [INFO] Listening at: http://0.0.0.0:4000 (48362)
+[2019-04-14 08:07:13 -0400] [48362] [INFO] Using worker: gevent
+[2019-04-14 08:07:13 -0400] [48366] [INFO] Booting worker with pid: 48366
+[2019-04-14 08:07:13 -0400] [48362] [DEBUG] 1 workers
+[2019-04-14 08:07:18 -0400] [48366] [DEBUG] GET /
+[2019-04-14 08:07:18 -0400] [48366] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:18 -0400] [48366] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:18 -0400] [48366] [DEBUG] Ignoring EPIPE
+[2019-04-14 08:07:18 -0400] [48366] [DEBUG] GET /static/style.css
+[2019-04-14 08:07:18 -0400] [48366] [DEBUG] GET /video
+[2019-04-14 08:07:22 -0400] [48366] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 114, in handle_request
+    for item in respiter:
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wsgi.py", line 870, in __next__
+    return self._next()
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wrappers.py", line 82, in _iter_encoded
+    for item in iterable:
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 46, in generate_frame
+    if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
+IndexError: list index out of range
+[2019-04-14 08:07:22 -0400] [48366] [DEBUG] Closing connection. 
+[2019-04-14 08:07:22 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:22 -0400] [48366] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:22 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:22 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:24 -0400] [48366] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:24 -0400] [48366] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:24 -0400] [48366] [DEBUG] GET /
+[2019-04-14 08:07:24 -0400] [48366] [DEBUG] GET /video
+[2019-04-14 08:07:28 -0400] [48366] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 114, in handle_request
+    for item in respiter:
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wsgi.py", line 870, in __next__
+    return self._next()
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wrappers.py", line 82, in _iter_encoded
+    for item in iterable:
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 46, in generate_frame
+    if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
+IndexError: list index out of range
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] Closing connection. 
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:28 -0400] [48366] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:34 -0400] [48381] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x108cba620>
+  on_reload: <function OnReload.on_reload at 0x108cba730>
+  when_ready: <function WhenReady.when_ready at 0x108cba840>
+  pre_fork: <function Prefork.pre_fork at 0x108cba950>
+  post_fork: <function Postfork.post_fork at 0x108cbaa60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x108cbab70>
+  worker_int: <function WorkerInt.worker_int at 0x108cbac80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x108cbad90>
+  pre_exec: <function PreExec.pre_exec at 0x108cbaea0>
+  pre_request: <function PreRequest.pre_request at 0x108d68048>
+  post_request: <function PostRequest.post_request at 0x108d680d0>
+  child_exit: <function ChildExit.child_exit at 0x108d681e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x108d682f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x108d68400>
+  on_exit: <function OnExit.on_exit at 0x108d68510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:07:34 -0400] [48381] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:07:34 -0400] [48381] [DEBUG] Arbiter booted
+[2019-04-14 08:07:34 -0400] [48381] [INFO] Listening at: http://0.0.0.0:4000 (48381)
+[2019-04-14 08:07:34 -0400] [48381] [INFO] Using worker: gevent
+[2019-04-14 08:07:34 -0400] [48385] [INFO] Booting worker with pid: 48385
+[2019-04-14 08:07:34 -0400] [48381] [DEBUG] 1 workers
+[2019-04-14 08:07:40 -0400] [48385] [DEBUG] GET /
+[2019-04-14 08:07:40 -0400] [48385] [DEBUG] GET /static/style.css
+[2019-04-14 08:07:40 -0400] [48385] [DEBUG] GET /video
+[2019-04-14 08:07:44 -0400] [48385] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base_async.py", line 114, in handle_request
+    for item in respiter:
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wsgi.py", line 870, in __next__
+    return self._next()
+  File "/anaconda3/lib/python3.7/site-packages/werkzeug/wrappers.py", line 82, in _iter_encoded
+    for item in iterable:
+  File "/Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject/app.py", line 46, in generate_frame
+    if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
+IndexError: list index out of range
+[2019-04-14 08:07:44 -0400] [48385] [DEBUG] Closing connection. 
+[2019-04-14 08:07:44 -0400] [48385] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:44 -0400] [48385] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:44 -0400] [48385] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:44 -0400] [48385] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:54 -0400] [48385] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:55 -0400] [48385] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:57 -0400] [48385] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:57 -0400] [48385] [DEBUG] POST /socket.io/
+[2019-04-14 08:07:57 -0400] [48385] [DEBUG] GET /socket.io/
+[2019-04-14 08:07:57 -0400] [48385] [DEBUG] GET /socket.io/
+[2019-04-14 08:08:03 -0400] [48408] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x104cbf620>
+  on_reload: <function OnReload.on_reload at 0x104cbf730>
+  when_ready: <function WhenReady.when_ready at 0x104cbf840>
+  pre_fork: <function Prefork.pre_fork at 0x104cbf950>
+  post_fork: <function Postfork.post_fork at 0x104cbfa60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x104cbfb70>
+  worker_int: <function WorkerInt.worker_int at 0x104cbfc80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x104cbfd90>
+  pre_exec: <function PreExec.pre_exec at 0x104cbfea0>
+  pre_request: <function PreRequest.pre_request at 0x104d6d048>
+  post_request: <function PostRequest.post_request at 0x104d6d0d0>
+  child_exit: <function ChildExit.child_exit at 0x104d6d1e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x104d6d2f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x104d6d400>
+  on_exit: <function OnExit.on_exit at 0x104d6d510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:08:03 -0400] [48408] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:08:03 -0400] [48408] [DEBUG] Arbiter booted
+[2019-04-14 08:08:03 -0400] [48408] [INFO] Listening at: http://0.0.0.0:4000 (48408)
+[2019-04-14 08:08:03 -0400] [48408] [INFO] Using worker: gevent
+[2019-04-14 08:08:03 -0400] [48412] [INFO] Booting worker with pid: 48412
+[2019-04-14 08:08:03 -0400] [48408] [DEBUG] 1 workers
+[2019-04-14 08:08:08 -0400] [48412] [DEBUG] GET /
+[2019-04-14 08:08:08 -0400] [48412] [DEBUG] GET /static/style.css
+[2019-04-14 08:08:08 -0400] [48412] [DEBUG] GET /video
+[2019-04-14 08:08:18 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:08:18 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:08:23 -0400] [48412] [DEBUG] POST /socket.io/
+[2019-04-14 08:08:24 -0400] [48412] [DEBUG] POST /socket.io/
+[2019-04-14 08:08:26 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:08:26 -0400] [48412] [DEBUG] POST /socket.io/
+[2019-04-14 08:08:26 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:08:26 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:08:43 -0400] [48412] [DEBUG] POST /socket.io/
+[2019-04-14 08:08:43 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:08:54 -0400] [48412] [DEBUG] POST /socket.io/
+[2019-04-14 08:08:54 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:09:09 -0400] [48412] [DEBUG] POST /socket.io/
+[2019-04-14 08:09:09 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:09:22 -0400] [48412] [DEBUG] POST /socket.io/
+[2019-04-14 08:09:22 -0400] [48412] [DEBUG] GET /socket.io/
+[2019-04-14 08:10:32 -0400] [48465] [DEBUG] Current configuration:
+  config: None
+  bind: ['0.0.0.0:4000']
+  backlog: 2048
+  workers: 1
+  worker_class: gevent
+  threads: 12
+  worker_connections: 100
+  max_requests: 500
+  max_requests_jitter: 0
+  timeout: 120
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/sujalahrodia/Desktop/Code/Hack/MLH/FlaskProject
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x105295620>
+  on_reload: <function OnReload.on_reload at 0x105295730>
+  when_ready: <function WhenReady.when_ready at 0x105295840>
+  pre_fork: <function Prefork.pre_fork at 0x105295950>
+  post_fork: <function Postfork.post_fork at 0x105295a60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x105295b70>
+  worker_int: <function WorkerInt.worker_int at 0x105295c80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x105295d90>
+  pre_exec: <function PreExec.pre_exec at 0x105295ea0>
+  pre_request: <function PreRequest.pre_request at 0x105343048>
+  post_request: <function PostRequest.post_request at 0x1053430d0>
+  child_exit: <function ChildExit.child_exit at 0x1053431e0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1053432f0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x105343400>
+  on_exit: <function OnExit.on_exit at 0x105343510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-14 08:10:32 -0400] [48465] [INFO] Starting gunicorn 19.9.0
+[2019-04-14 08:10:32 -0400] [48465] [DEBUG] Arbiter booted
+[2019-04-14 08:10:32 -0400] [48465] [INFO] Listening at: http://0.0.0.0:4000 (48465)
+[2019-04-14 08:10:32 -0400] [48465] [INFO] Using worker: gevent
+[2019-04-14 08:10:32 -0400] [48468] [INFO] Booting worker with pid: 48468
+[2019-04-14 08:10:32 -0400] [48465] [DEBUG] 1 workers
+[2019-04-14 08:10:36 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:10:36 -0400] [48468] [DEBUG] GET /
+[2019-04-14 08:10:36 -0400] [48468] [DEBUG] GET /static/style.css
+[2019-04-14 08:10:36 -0400] [48468] [DEBUG] GET /video
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:10:43 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:11:08 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:11:08 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:11:14 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:11:14 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:11:33 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:11:33 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:11:52 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:11:52 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:11:58 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:11:58 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:12:23 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:12:23 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:12:28 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:12:28 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:12:48 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:12:48 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:13:05 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:13:05 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:13:13 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:13:13 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:13:38 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:13:38 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:13:42 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:13:42 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:03 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:14:03 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:16 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:14:16 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:17 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:14:18 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:18 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:14:18 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:18 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:29 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:14:29 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:44 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:14:44 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:14:54 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:14:54 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:15:16 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:15:16 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:15:17 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:15:18 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:15:18 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:15:18 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:15:18 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:15:19 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:15:19 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:15:44 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:15:44 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:15:44 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:15:44 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:16:10 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:16:10 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:16:10 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:16:10 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:16:36 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:16:36 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:16:36 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:16:36 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:17:02 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:17:02 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:17:02 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:17:02 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:17:28 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:17:28 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:17:28 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:17:28 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:17:54 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:17:54 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:17:54 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:17:54 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:18:20 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:18:20 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:18:20 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:18:20 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:18:46 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:18:46 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:18:46 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:18:46 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:19:12 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:19:12 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:19:12 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:19:12 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:19:38 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:19:38 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:19:38 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:19:38 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:20:04 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:20:04 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:20:04 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:20:04 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:20:30 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:20:30 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:20:30 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:20:30 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:20:56 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:20:56 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:20:56 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:20:56 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:21:22 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:21:22 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:21:27 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:21:27 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:21:48 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:21:48 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:21:53 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:21:53 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:22:14 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:22:14 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:22:20 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:22:20 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:22:40 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:22:40 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:22:56 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:22:56 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:23:06 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:23:06 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:23:22 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:23:22 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:23:32 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:23:32 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:23:48 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:23:48 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:23:58 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:23:58 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:24:24 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:24:24 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:24:26 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:24:26 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:24:50 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:24:50 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:24:54 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:24:54 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:25:16 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:25:16 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:25:20 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:25:20 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:25:42 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:25:42 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:25:46 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:25:46 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:26:08 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:26:08 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:26:12 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:26:12 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:26:34 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:26:34 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:26:38 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:26:38 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:27:00 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:27:00 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:27:04 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:27:04 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:27:26 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:27:26 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:27:30 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:27:30 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:27:52 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:27:52 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:28:08 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:28:08 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:28:18 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:28:18 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:28:33 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:28:33 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:28:44 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:28:44 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:28:59 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:28:59 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:29:10 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:29:10 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:29:25 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:29:25 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:29:36 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:29:36 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:29:51 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:29:51 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:30:02 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:30:02 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:30:17 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:30:17 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:30:28 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:30:28 -0400] [48468] [DEBUG] GET /socket.io/
+[2019-04-14 08:30:43 -0400] [48468] [DEBUG] POST /socket.io/
+[2019-04-14 08:30:43 -0400] [48468] [DEBUG] GET /socket.io/
