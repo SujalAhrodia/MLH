@@ -13,7 +13,7 @@ from imutils import face_utils
 import argparse
 import time
 
-IMAGES_PATH = './images'  # put your reference images in here
+IMAGES_PATH = './static/people'  # put your reference images in here
 CAMERA_DEVICE_ID = 0
 MAX_DISTANCE = 0.5 # increase to make recognition less strict, decrease to make more strict
 BLINK_THRSH= 1.10
@@ -100,6 +100,7 @@ known_face_names = list(database.keys())
 class VideoCamera(object):
     def __init__(self):
         self.video = cv2.VideoCapture(0)
+        self.video.set(cv2.CAP_PROP_FPS, 60)
 
     def __del__(self):
         self.video.release()
@@ -107,7 +108,7 @@ class VideoCamera(object):
     def run_face_recognition(self):
         ok, frame = self.video.read()
         name = None
-        # frame = imutils.resize(frame, width=512)
+        frame = imutils.resize(frame, width=512)
 
         face_locations, face_encodings, face_landmarks = get_face_embeddings_from_image(frame, convert_to_rgb=True)
 

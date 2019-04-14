@@ -10,6 +10,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
 	integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
+	<form action="/login" method="POST">
 
 	<div class="login">
 		<div class="login-screen">
@@ -23,23 +24,23 @@
 			<div class="control-group" id="videoElement" style = "padding-bottom:50px">
 				<img id="webcam" src="{{ url_for('video_feed') }}" style="width:400px;">
 				</div>
-				
+
+				<p>To signup, click <a href="{{ url_for('signup') }}">here!</a></p>
+
 				<h5 style="color: #696363"> Powered by </h5>
 				<a href="{{ url_for('login2') }}"><img src="../static/mlh.png" width="70" height="35" /></a>
-				
-			
+
+
 			</div>
 		</div>
 	</div>
+	</form>
 
 
 {% endif %}
 {% endblock %}
 
 <script>
-	setTimeout(function(){
-		$('videoElement').remove();
-	},5000);
 
 // var testsocket = io.connect('http://localhost:4000');
 // testsocket.on("face detected2", function (msg){

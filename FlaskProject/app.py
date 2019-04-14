@@ -13,11 +13,10 @@ app.config['SECRET_KEY'] = 'secret!'
 @app.route('/')
 def home():
     if not session.get('logged_in'):        
-        if not session.get('image_iden'):
-            session['image_iden'] = False
         return render_template('login.html')
     else:
         return "Welcome to the system!  <a href='/logout'>Logout</a>"
+
 
 
 def generate_frame(camera):
@@ -27,25 +26,21 @@ def generate_frame(camera):
         while flag:
             frame, name = camera.run_face_recognition()
             name_val.append(name)
-            if len(name_val)>=2 and name != None:
-                if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
+            if len(name_val)>=3 and name != None:
+                if name_val[-3] == name_val[-2] and name_val[-2] == name_val[-1]:
                     # session['name'] = name_val[-3]
                     # session['image_iden'] = True
-                    print(name_val)
-                    flag=False
+                    # print(name_val)
                     session['name'] = name
                     session['image_iden'] = True
-                    
-                    #return redirect(url_for('home'))
-                    # return render_template('login.html', name = name, identifier = identifier)
+                    # flag=False
+                    # return redirect(url_for('home'))
                     # print(session['name'])
                     # break  
+            
             yield (b'--frame\r\n'
                 b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-        
-        #session['image_iden'] = True
-
-
+    
 @app.route('/video')
 def video_feed():
     return Response(generate_frame(VideoCamera()),
@@ -148,4 +143,4 @@ def do_email_login():
 
 if __name__ == "__main__":
     #socketio.run(app)
-    app.run(host='0.0.0.0', port=4000)
+    app.run(debug= True, host='0.0.0.0', port=4000)
