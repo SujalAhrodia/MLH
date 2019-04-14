@@ -16,7 +16,7 @@ import time
 IMAGES_PATH = './static/people'  # put your reference images in here
 CAMERA_DEVICE_ID = 0
 MAX_DISTANCE = 0.5 # increase to make recognition less strict, decrease to make more strict
-BLINK_THRSH= 1.10
+BLINK_THRSH= 0.20
 
 
 def eye_aspect_ratio(eye):
@@ -30,7 +30,7 @@ def eye_aspect_ratio(eye):
 	C = dist.euclidean(eye[0], eye[3])
 
 	# compute the eye aspect ratio
-	ear = (A + B) **2 / (2.0 * C)
+	ear = (A + B) / (2.0 * C)
 
 	# return the eye aspect ratio
 	return ear
@@ -125,7 +125,7 @@ class VideoCamera(object):
 
                 EAR = (left+right)/2.0
 
-                # print(EAR)
+                print(EAR)
                 # print(face_locations[0][0], face_locations[0][1], face_locations[0][2],)
 
                 if np.any(distances <= MAX_DISTANCE):
