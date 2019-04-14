@@ -32,14 +32,17 @@ def do_admin_register():
     lastName = request.form['last_name']
     email = request.form['email']
     password = request.form['password']
-    session['email'] = email
+    session['email'] = email.split('@')[0]
     new_object = {}
     new_object["firstName"] = firstName
     new_object["lastName"] = lastName
+    new_object["email"] = email
+    new_object["emailName"] = email.split('@')[0]
     new_object["password"] = password
 
     with open("data.json","r") as f:
         data = json.load(f)
+        
 
     data[email] = new_object
 
@@ -58,22 +61,17 @@ def logout():
 def signup():
     return render_template('signup.html')
  
-@app.route("/data")
-def data():
-    return render_template('data.html')
-
 @app.route("/file_save", methods=['POST'])
 def do_file_save():
     data_uri = request.form['uri']
     print(session['email'])
     header, encoded = data_uri.split(",", 1)
     data = b64decode(encoded)
-
-    with open("./static/people/image.jpg", "wb") as f:
+    path = "./static/people/"+session['email']+".jpg"
+    with open(path, "wb") as f:
         f.write(data)
     
-    return render_template('/')
-
+    return home()
 
 @app.route("/create_account")
 def create_account():
