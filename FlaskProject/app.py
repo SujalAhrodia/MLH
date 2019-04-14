@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import Flask, flash, redirect, render_template, request, session, abort, Response
+from flask import Flask, flash, redirect, render_template, request, session, abort, Response, copy_current_request_context
 from authenticate import VideoCamera
 import os
 import json
@@ -8,20 +8,43 @@ from base64 import b64decode
 
 app = Flask(__name__)
  
+global name, identifier
+
 @app.route('/')
 
 def home():
     if not session.get('logged_in'):        
-        session['image_iden'] = False
+        if not session.get('image_iden'):
+            session['image_iden'] = False
         return render_template('login.html')
     else:
         return "Welcome to the system!  <a href='/logout'>Logout</a>"
 
 def generate_frame(camera):
-    while True:
-        frame = camera.run_face_recognition()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+    name_val = [] 
+    flag = True   
+    flag2 = 0
+    with app.test_request_context():
+        while flag:
+            frame, name = camera.run_face_recognition()
+            name_val.append(name)
+            if len(name_val)>=3 and name != None:
+                if name_val[-3] == name_val[-2] and name_val[-2]== name_val[-1]:
+                    # session['name'] = name_val[-3]
+                    # session['image_iden'] = True
+                    print(name_val)
+                    flag=False
+                    session['name'] = name
+                    session['image_iden'] = True
+                    return home()
+                    # return render_template('login.html', name = name, identifier = identifier)
+                    # print(session['name'])
+                    # break  
+            
+            yield (b'--frame\r\n'
+                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+        
+        #session['image_iden'] = True
 
 @app.route('/video')
 def video_feed():

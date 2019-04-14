@@ -19,6 +19,7 @@
 			</br>
 
 			<div class="login-form">
+				{{session['image_iden']}}
 			{% if  not session['image_iden'] %}
 				<div class="control-group" id="videoElement" style = "padding-bottom:50px">
 				<img id="webcam" src="{{ url_for('video_feed') }}" style="width:400px;">

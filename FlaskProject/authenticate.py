@@ -106,7 +106,7 @@ class VideoCamera(object):
     
     def run_face_recognition(self):
         ok, frame = self.video.read()
-        
+        name = None
         # frame = imutils.resize(frame, width=512)
 
         face_locations, face_encodings, face_landmarks = get_face_embeddings_from_image(frame, convert_to_rgb=True)
@@ -135,7 +135,7 @@ class VideoCamera(object):
                         flag = True 
                         print("Gotcha!")
                         cv2.putText(frame,'BLINK',(100,100), cv2.FONT_HERSHEY_DUPLEX, 1,(255),2,cv2.LINE_AA)
-
+                    # print(name)
                 else:
                     name = None
                     #send API call for sign up
@@ -146,6 +146,6 @@ class VideoCamera(object):
             # send api for msg 
             flag = False
         ret, jpeg = cv2.imencode('.jpg', frame)
-        return jpeg.tobytes()
+        return jpeg.tobytes(), name
 
 # VideoCamera()
