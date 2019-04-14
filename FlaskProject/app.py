@@ -3,6 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, session, abo
 from authenticate import VideoCamera
 import os
 import json
+import random
 from base64 import b64decode
 
 app = Flask(__name__)
@@ -44,19 +45,21 @@ def do_admin_register():
     lastName = request.form['last_name']
     email = request.form['email']
     password = request.form['password']
-    session['email'] = email.split('@')[0]
+    #session['email'] = email.split('@')[0]
     new_object = {}
     new_object["firstName"] = firstName
     new_object["lastName"] = lastName
     new_object["email"] = email
-    new_object["emailName"] = email.split('@')[0]
+    #new_object["emailName"] = email.split('@')[0]
     new_object["password"] = password
 
     with open("data.json","r") as f:
         data = json.load(f)
         
+    userName = firstName + lastName + str(random.randint(1,100))
 
-    data[email] = new_object
+    session["userName"] = userName
+    data[userName] = new_object
 
     with open("data.json", "w") as jsonFile:
         json.dump(data, jsonFile)
@@ -77,10 +80,10 @@ def signup():
 @app.route("/file_save", methods=['POST'])
 def do_file_save():
     data_uri = request.form['uri']
-    print(session['email'])
+    #print(session['email'])
     header, encoded = data_uri.split(",", 1)
     data = b64decode(encoded)
-    path = "./static/people/"+session['email']+".jpg"
+    path = "./static/people/"+session["userName"]+".jpg"
     with open(path, "wb") as f:
         f.write(data)
     return home()
