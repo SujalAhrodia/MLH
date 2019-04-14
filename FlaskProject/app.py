@@ -1,20 +1,32 @@
 from flask import Flask
-from flask import Flask, flash, redirect, render_template, request, session, abort
+from flask import Flask, flash, redirect, render_template, request, session, abort, Response
+from authenticate import VideoCamera
 import os
 import json
 from base64 import b64decode
 
-
 app = Flask(__name__)
  
 @app.route('/')
+
 def home():
-    if not session.get('logged_in'):
+    if not session.get('logged_in'):        
         session['image_iden'] = False
         return render_template('login.html')
     else:
         return "Welcome to the system!  <a href='/logout'>Logout</a>"
- 
+
+def generate_frame(camera):
+    while True:
+        frame = camera.run_face_recognition()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+@app.route('/video')
+def video_feed():
+    return Response(generate_frame(VideoCamera()),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     if request.form['password'] == 'password' and request.form['first_name'] == 'admin':
@@ -103,7 +115,6 @@ def do_email_login():
         flash('Wrong password!')
         return home()
     return home()
-
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
