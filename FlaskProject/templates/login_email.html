@@ -3,35 +3,40 @@
 {% if session['logged_in'] %}
 <p>You're logged in already!</p>
 {% else %}
- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
- 
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+	integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
+</script>
+
 <form action="/login_email_register" method="POST">
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-			<img src = "../static/logo1.png" width="150"/>
+				<img src="../static/logo1.png" width="150" />
 			</div>
- </br>
+			</br>
 
 			<div class="login-form">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="Email" name="email">
-				<label class="login-field-icon fui-lock" for="login-pass"></label><br><br>
-				<input type="password" class="login-field" value="" placeholder="Password" name="password">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
+					<input type="text" class="login-field" value="" placeholder="Email" name="email">
+					<label class="login-field-icon fui-lock" for="login-pass"></label><br><br>
+					<input type="password" class="login-field" value="" placeholder="Password" name="password">
+					<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
-        <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" style="width:100px" >
-			    <br>
-					</br>
-					<p>To signup, click <a href="{{ url_for('signup') }}">here!</a></p>
+				<input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" style="width:100px">
+				<br>
+				</br>
+				<p>To signup, click <a href="{{ url_for('signup') }}">here!</a></p>
 				<h5 style="color: #696363"> Powered by </h5>
-				<img src = "../static/mlh.png" width="70" height="35"/>
+				<img src="../static/mlh.png" width="70" height="35" />
 			</div>
 		</div>
 	</div>
 </form>
- 
+
 {% endif %}
 {% endblock %}

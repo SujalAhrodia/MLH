@@ -1,42 +1,64 @@
-
+<link rel="stylesheet" href="/static/style.css" type="text/css">
 {% block body %}
 {% if session['logged_in'] %}
 <p>You're logged in already!</p>
 {% else %}
- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/static/style.css" type="text/css"> 
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+	integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
+</script>
+
 <form action="/register" method="POST">
 	<div class="register">
 		<div class="login-screen">
 			<div class="app-title">
-			<img src = "../static/logo1.png" width="150"/>
+				<img src="../static/logo1.png" width="150" />
 			</div>
- </br>
+			</br>
+			<div class="container">
+				<div class="row">
+					<div class="control-group col-sm-7">
 
-			<div class="login-form">
+						<div class="login-form" style="margin-top:50px">
 
-				{% if not session['image_iden'] %}
-				<div class="control-group" style="text-align: left; margin-top: 30px">
-				<input type="text" class="login-field" value="" placeholder="First Name" name="first_name">
-                <input type="text" class="login-field" value="" placeholder="Last Name" name="last_name" style="margin-left:40px"></br></br>
-                <input type="email" class="login-field" value="" placeholder="Email" name="email" style="width: 550px;"></br></br>
-                <input type="password" class="login-field" value="" placeholder="Password" name="password">
-				<!-- <label class="login-field-icon fui-lock" for="login-pass"></label> -->
-				<input type="password" class="login-field" value="" placeholder="Confirm password" name="confirm_password" style="margin-left:40px">
-				<!-- <label class="login-field-icon fui-lock" for="login-pass"></label> --><br><br>
-                <button type="submit" class="btn btn-primary" >Next</button>
+							{% if not session['image_iden'] %}
+							<div class="control-group" style="text-align: left; margin-top: 30px">
+								<input type="text" class="login-field" value="" placeholder="First Name"
+									name="first_name">
+								<input type="text" class="login-field" value="" placeholder="Last Name" name="last_name"
+									style="margin-left:40px"></br></br>
+								<input type="email" class="login-field" value="" placeholder="Email" name="email"
+									style="width: 550px;"></br></br>
+								<input type="password" class="login-field" value="" placeholder="Password"
+									name="password">
+								<!-- <label class="login-field-icon fui-lock" for="login-pass"></label> -->
+								<input type="password" class="login-field" value="" placeholder="Confirm password"
+									name="confirm_password" style="margin-left:40px">
+								<!-- <label class="login-field-icon fui-lock" for="login-pass"></label> --><br><br>
+								<button type="submit" class="btn btn-primary btn-large btn-block" style="width:150px; margin-right:300px">Next</button>
+							</div>
+
+							<br>
+							{% endif %}
+						</div>
+					</div>
+					<div class="control-group col-sm-5">
+					<img src="../static/face.png" height="400"/>
+					</div>
+
 				</div>
-                
-			    <br>
-					{% endif %}
-				<h5 style="color: #696363"> Powered by </h5>
-				<img src = "../static/mlh.png" width="70" height="35"/>
 			</div>
+			<center>
+			<h5 style="color: #696363"> Powered by </h5>
+			<img src="../static/mlh.png" width="70" height="35" />
+			</center>
 		</div>
 	</div>
 </form>
- 
+
 {% endif %}
 {% endblock %}

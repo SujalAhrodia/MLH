@@ -55,6 +55,7 @@ def do_admin_register():
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
+    session['email'] == False
     return home()
 
 @app.route("/signup")
@@ -70,7 +71,6 @@ def do_file_save():
     path = "./static/people/"+session['email']+".jpg"
     with open(path, "wb") as f:
         f.write(data)
-    
     return home()
 
 @app.route("/create_account")
@@ -87,6 +87,21 @@ def login_email():
 
 @app.route("/login_email_register", methods=['POST'])
 def do_email_login():
+    with open("data.json","r") as f:
+        data = json.load(f)
+
+    uEmail = request.form['email']
+
+    if uEmail not in data.keys():
+        flash("User doesn't exists.")
+        return home()
+
+    if request.form['password'] == data[uEmail]["password"]:
+        session['logged_in'] = True
+        session['email'] = True
+    else:
+        flash('Wrong password!')
+        return home()
     return home()
 
 

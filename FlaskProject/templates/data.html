@@ -4,42 +4,43 @@
 	elements involved, they are created with markup (not JavaScript)
 -->
 
-    <video id="video" width="640" height="480" autoplay></video>
-    <button id="snap">Snap Photo</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
 
 <form action="/file_save" method="POST">
-    <input type="text" id="custId"  name="uri" />
+    <input type="text" id="custId" name="uri" />
     <input type="submit" value="Upload" class="btn btn-primary btn-large btn-block" style="width:100px" />
 </form>
 
 <script>
-var video = document.getElementById('video');
+    var video = document.getElementById('video');
 
-// Get access to the camera!
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
+    // Get access to the camera!
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        navigator.mediaDevices.getUserMedia({
+            video: true
+        }).then(function (stream) {
+            //video.src = window.URL.createObjectURL(stream);
+            video.srcObject = stream;
+            video.play();
+        });
+    }
+
+
+    // Elements for taking the snapshot
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var video = document.getElementById('video');
+    var data;
+    // Trigger photo take
+    document.getElementById("snap").addEventListener("click", function () {
+        context.drawImage(video, 0, 0, 640, 480);
+        var imageURL = canvas.toDataURL("image/jpg");
+        document.getElementById("custId").value = imageURL;
+
+        //data = imageURL.replace("data:image/jpeg;base64,", "");
     });
-}
-
-
-// Elements for taking the snapshot
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-var video = document.getElementById('video');
-var data;
-// Trigger photo take
-document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(video, 0, 0, 640, 480);    
-    var imageURL = canvas.toDataURL("image/jpg");
-    document.getElementById("custId").value=imageURL;
-
-    //data = imageURL.replace("data:image/jpeg;base64,", "");
-});
-//document.getElementById("custId").value=imageURL;
+    //document.getElementById("custId").value=imageURL;
 </script>
-
