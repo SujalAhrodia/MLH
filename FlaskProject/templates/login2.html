@@ -20,14 +20,14 @@
 			<div class="login-form">
 				<!-- {{session['image_iden']}} -->
 				<div class="control-group" id="dest">
-                    <h2 style="color: #696363">Welcome, Sujal</h2>
+                    <h2 style="color: #696363">Welcome</h2>
                     <input type="hidden" class="login-field" value="admin"  name="first_name">
 					<label class="login-field-icon fui-lock" for="login-pass"></label>
 					<input type="password" class="login-field" value="" placeholder="Enter your password" name="password">
 					<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 				<input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" style="width:100px"><br><br>
-				<p> Not Sujal, click <a href="{{ url_for('login_email') }}">here</a> to login via email.</p>
+				<p> Click <a href="{{ url_for('login_email') }}">here</a> to login via email.</p>
 
 				<p>To signup, click <a href="{{ url_for('signup') }}">here!</a></p>
 				<h5 style="color: #696363"> Powered by </h5>
