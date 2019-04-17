@@ -1,5 +1,8 @@
 # Snap In
 
+Contributors: 
+* [Sujal](https://github.com/SujalAhrodia)
+* [Rayan Dasoriya](https://github.com/rayandasoriya)
 ## Description
 An average internet user has roughly 40 online accounts. That means 40 different username and passwords to remember. But the real problem is to remember different usernames for each website because users usually keep the same passwords for multiple platforms. 
 
